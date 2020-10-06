@@ -5,7 +5,7 @@ library(factoextra)
 library(psych)
 library(car)
 
-dat = read.csv("BodyFat.csv")
+dat = read.csv("data/BodyFat.csv")
 summary(dat)
 
 #PCA
