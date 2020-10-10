@@ -18,7 +18,7 @@ dim(data)
 colnames(data)
 summary(data)
 # For point BODYFAT == 0, we simply exclude it.
-data = data[-which(dat$BODYFAT==0),]
+data = data[-which(data$BODYFAT==0),]
 # For point HEIGHT == 29.5, we use adiposity and weight to recalculate it.
 # ADIPOSITY(BMI) = weight/(height^2)  unit: kg/(m^2)
 # 1 lbs = 0.4535924 kg
