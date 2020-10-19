@@ -1,7 +1,8 @@
 #stat 628 cross validation zihang wang 2020.10.9
 
+setwd("/Users/sixuli/Desktop/STAT 628/Module 2/Code/")
 # data cleaning
-dat = read.csv("BodyFat.csv")
+dat = read.csv("data/BodyFat.csv")
 dat = dat[-which(dat$BODYFAT==0),]
 dat = dat[-which(dat$HEIGHT==29.5),]
 dat = dat[,c(2,4:17)]
