@@ -12,8 +12,8 @@
 # 4. model diagnostic: Using some common methods to check assumptions of the presented model.
 
 ##################### PART 1: data preprocessing #####################
-#data = read.csv("BodyFat.csv")
-data <- read.csv("/Users/elenaxu/Library/Mobile Documents/com~apple~CloudDocs/VispCourses/STAT628/module2/BodyFat.csv")
+data = read.csv("BodyFat.csv")
+#data <- read.csv("/Users/elenaxu/Library/Mobile Documents/com~apple~CloudDocs/VispCourses/STAT628/module2/BodyFat.csv")
 dim(data)
 colnames(data)
 summary(data)
@@ -27,7 +27,11 @@ outlier <- data[which(data$HEIGHT==29.5),c("WEIGHT","HEIGHT","ADIPOSITY")]
 data[which(data["HEIGHT"]==29.5),"HEIGHT"] <- sqrt((outlier[1]*0.4535924)/outlier[3])/0.0254  # 69.42894
 summary(data)
 data <- data[,c(2,4:17)] # get rid of INFO and DENSITY
+BMI <- 703 * (data$WEIGHT) / (data$HEIGHT)^2
+(data[which(abs(data$ADIPOSITY - BMI) > 1),])
+(data[which(data$BODYFAT < 2), ])
 
+<<<<<<< HEAD
 # HEItest <- sqrt((data$WEIGHT*0.4535924)/data$ADIPOSITY)/0.0254
 # summary(HEItest-data$HEIGHT)
 # plot(x= 1: 251, y= HEItest-data$HEIGHT)
@@ -44,6 +48,9 @@ data <- data[,c(2,4:17)] # get rid of INFO and DENSITY
 # which(diff2 == max(diff2))
 # which(diff2 == min(diff2))
 
+=======
+# add ratios
+>>>>>>> 05c045d04b7386545600c37c22340a94d7f32da0
 data["ADOHIPr"] <- data["ABDOMEN"]/data["HIP"]
 data["THIHIPr"] <- data["THIGH"]/data["HIP"]
 data["WRIFORr"] <- data["WRIST"]/data["FOREARM"]
@@ -54,20 +61,66 @@ data["FORBICr"] <- data["FOREARM"]/data["BICEPS"]
 data["ANKTHIr"] <- data["ANKLE"]/data["THIGH"]
 data["CHEABDr"] <- data["CHEST"]/data["ABDOMEN"]
 
+<<<<<<< HEAD
 data <- data[-c(163,220),]
 n <- dim(data)[1]
 
 
 # split testset
 set.seed(2333)
+=======
+# split testset
+set.seed(628)
+>>>>>>> 05c045d04b7386545600c37c22340a94d7f32da0
 a=sample(1:length(data$BODYFAT),50)
 test = data[a,]
 train = data[-a,]
 
+<<<<<<< HEAD
+=======
+# visualization
+
+# ggplot(data = train, mapping = aes(x = AGE, y = BODYFAT)) + geom_point()
+# ggplot(data = train, mapping = aes(x = ADIPOSITY, y = BODYFAT)) + geom_point()
+# ggplot(data = train, mapping = aes(x = WEIGHT, y = BODYFAT)) + geom_point()
+# ggplot(data = train, mapping = aes(x = HEIGHT, y = BODYFAT)) + geom_point()
+# ggplot(data = train, mapping = aes(x = NECK, y = BODYFAT)) + geom_point()
+# ggplot(data = train, mapping = aes(x = CHEST, y = BODYFAT)) + geom_point()
+# ggplot(data = train, mapping = aes(x = ABDOMEN, y = BODYFAT)) + geom_point()
+# ggplot(data = train, mapping = aes(x = HIP, y = BODYFAT)) + geom_point()
+# ggplot(data = train, mapping = aes(x = THIGH, y = BODYFAT)) + geom_point()
+# ggplot(data = train, mapping = aes(x = KNEE, y = BODYFAT)) + geom_point()
+# ggplot(data = train, mapping = aes(x = ANKLE, y = BODYFAT)) + geom_point()
+# ggplot(data = train, mapping = aes(x = BICEPS, y = BODYFAT)) + geom_point()
+# ggplot(data = train, mapping = aes(x = FOREARM, y = BODYFAT)) + geom_point()
+# ggplot(data = train, mapping = aes(x = WRIST, y = BODYFAT)) + geom_point()
+# ggplot(data = train, mapping = aes(x = ADOHIPr, y = BODYFAT)) + geom_point()
+#ggplot(data = train, mapping = aes(x = WBR, y = BODYFAT)) + geom_point()
+#ggplot(data = train, mapping = aes(x = WFR, y = BODYFAT)) + geom_point()
+#ggplot(data = train, mapping = aes(x = NCR, y = BODYFAT)) + geom_point()
+
+ggplot(data = test, mapping = aes(x = AGE, y = BODYFAT)) + geom_point()
+ggplot(data = test, mapping = aes(x = ADIPOSITY, y = BODYFAT)) + geom_point()
+ggplot(data = test, mapping = aes(x = WEIGHT, y = BODYFAT)) + geom_point()
+ggplot(data = test, mapping = aes(x = HEIGHT, y = BODYFAT)) + geom_point()
+ggplot(data = test, mapping = aes(x = NECK, y = BODYFAT)) + geom_point()
+ggplot(data = test, mapping = aes(x = CHEST, y = BODYFAT)) + geom_point()
+ggplot(data = test, mapping = aes(x = ABDOMEN, y = BODYFAT)) + geom_point()
+ggplot(data = test, mapping = aes(x = HIP, y = BODYFAT)) + geom_point()
+ggplot(data = test, mapping = aes(x = THIGH, y = BODYFAT)) + geom_point()
+ggplot(data = test, mapping = aes(x = KNEE, y = BODYFAT)) + geom_point()
+ggplot(data = test, mapping = aes(x = ANKLE, y = BODYFAT)) + geom_point()
+ggplot(data = test, mapping = aes(x = BICEPS, y = BODYFAT)) + geom_point()
+ggplot(data = test, mapping = aes(x = FOREARM, y = BODYFAT)) + geom_point()
+ggplot(data = test, mapping = aes(x = WRIST, y = BODYFAT)) + geom_point()
+ggplot(data = test, mapping = aes(x = ADOHIPr, y = BODYFAT)) + geom_point()
+
+>>>>>>> 05c045d04b7386545600c37c22340a94d7f32da0
 
 ##################### PART 2: modelling #####################
 ## linear regression
 model <- lm(BODYFAT~AGE+WEIGHT+HEIGHT+ADIPOSITY+NECK+CHEST+ABDOMEN+HIP+THIGH+KNEE+ANKLE+BICEPS+FOREARM+WRIST,data = train)
+<<<<<<< HEAD
 model1 <- step(model,direction = "both",k=log(n),trace = F)
 summary(model1)
 
@@ -80,6 +133,24 @@ summary(model2)
 
 model <- lm(BODYFAT~ AGE+WEIGHT+HEIGHT+ADIPOSITY+ADOHIPr+THIHIPr+WRIFORr+KNETHIr+NECCHEr+WRIBICr+FORBICr+ANKTHIr+CHEABDr,data = train)
 model3 <- step(model,direction = "both",k=log(n),trace = F)
+=======
+model1 <- step(model,direction = "both", trace = F)
+#model1 <- lm(formula = BODYFAT ~ AGE + WEIGHT + NECK + ABDOMEN + HIP + THIGH + FOREARM + WRIST, data = data)
+
+summary(model1)
+
+## quadratic regression
+model <- lm(BODYFAT~AGE++WEIGHT+HEIGHT+ADIPOSITY+NECK+CHEST+ABDOMEN+HIP+THIGH+KNEE+ANKLE+BICEPS+FOREARM+WRIST+I(AGE)^2+I(WEIGHT^2)+I(HEIGHT^2)+I(ADIPOSITY^2)+I(NECK^2)+I(CHEST^2)+I(ABDOMEN^2)+I(HIP^2)+I(THIGH^2)+I(KNEE^2)+I(ANKLE^2)+I(BICEPS^2)+I(FOREARM^2)+I(WRIST^2), data=train)
+model2 <- step(model,direction = "both", trace = F)
+#model2 <- lm(formula = BODYFAT ~ AGE + NECK + ABDOMEN + HIP + BICEPS + WRIST + I(ADIPOSITY^2) + I(CHEST^2) + I(HIP^2) + I(BICEPS^2) + I(WRIST^2), data = data)
+summary(model2)
+
+
+## Ratio  + age + weight + height + adiposity model
+model <- lm(BODYFAT~ AGE+WEIGHT+HEIGHT+ADIPOSITY+ADOHIPr+THIHIPr+WRIFORr+KNETHIr+NECCHEr+WRIBICr+FORBICr+ANKTHIr+CHEABDr,data = train)
+model3 <- step(model,direction = "both", trace = F)
+#model3 <- lm(formula = BODYFAT ~ AGE + ADIPOSITY + ADOHIPr + KNETHIr + NECCHEr + WRIBICr + FORBICr + CHEABDr, data = data)
+>>>>>>> 05c045d04b7386545600c37c22340a94d7f32da0
 summary(model3)
 
 # summary(steppedmodel)
@@ -89,7 +160,11 @@ summary(model3)
 
 
 ## Abdomen + weight model
+<<<<<<< HEAD
 model4 <- lm(BODYFAT~AGE+ABDOMEN+WEIGHT,data = train)
+=======
+model4 <- lm(BODYFAT~ABDOMEN+WEIGHT,data = train)
+>>>>>>> 05c045d04b7386545600c37c22340a94d7f32da0
 summary(model4)
 
 ## Adiposity + abdomen/hip model
@@ -110,18 +185,28 @@ cross_validation = function(model,data,fold=10){
   # generate 10 subsets
   cvlist = list()
   n = rep(1:fold,ceiling(length(data$BODYFAT)/fold))[1:length(data$BODYFAT)]
+<<<<<<< HEAD
   #set.seed(seed)
   temp = sample(n,length(data$BODYFAT))  
+=======
+  #print(n)
+  set.seed(seed)
+  temp = sample(n,length(data$BODYFAT)) 
+  #print(temp)
+>>>>>>> 05c045d04b7386545600c37c22340a94d7f32da0
   x = 1:fold
   dataseq = 1:length(data$BODYFAT)
   cvlist = lapply(x,function(x) dataseq[which(temp==x)])  
+  #print(cvlist)
   
   # cross validation
   mape = c()
   for (i in 1:fold) {
     validation_set = data[cvlist[[i]],]
     training_set = data[-cvlist[[i]],]
+    #print(summary(model))
     my_model = lm(model,data=training_set)
+    #print(summary(my_model))
     validation_prediction = predict(my_model,validation_set)
     my_mape = sum(abs((validation_set$BODYFAT-validation_prediction)/validation_set$BODYFAT))/length(validation_prediction)
     mape = c(mape,my_mape)
@@ -138,11 +223,43 @@ cross_validation(model4,train)
 cross_validation(model5,train)
 cross_validation(model6,train)
 
+<<<<<<< HEAD
 ##################### PART 4: plots #####################
 library(ggplot2)
 ggplot(data = data, mapping = aes(x = ADIPOSITY, y = BODYFAT)) + geom_point()
+=======
+final_model1 <- lm(model1, data = train)
+summary(final_model1)
+
+pred_final_model1 <- predict(final_model1, test)
+(final_model1_mape <- sum(abs(test$BODYFAT - pred_final_model1)/test$BODYFAT)/length(test))
+
+final_model2 <- lm(model2, data = train)
+summary(final_model2)
+
+pred_final_model2 <- predict(final_model2, test)
+(final_model2_mape <- sum(abs(test$BODYFAT - pred_final_model2)/test$BODYFAT) / length(test))
+
+final_model3 <- lm(model3, data = train)
+summary(final_model3)
+
+pred_final_model3 <- predict(final_model3, test)
+(final_model4_mape <- sum(abs(test$BODYFAT - pred_final_model3)/test$BODYFAT) / length(test))
 
 
+final_model4 <- lm(model4, data = train)
+summary(final_model4)
+
+pred_final_model4 <- predict(final_model4, test)
+(final_model4_mape <- sum(abs(test$BODYFAT - pred_final_model4)/test$BODYFAT) / length(test))
+
+>>>>>>> 05c045d04b7386545600c37c22340a94d7f32da0
+
+final_model5 <- lm(model5, data = train)
+summary(final_model5)
+
+pred_final_model5 <- predict(final_model5, test)
+(final_model5_mape <- sum(abs(test$BODYFAT - pred_final_model5)/test$BODYFAT) / length(test))
 
 
 final_model = lm(model2,data=train)
