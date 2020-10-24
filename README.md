@@ -1,5 +1,5 @@
 # STAT628Module2-BodyFatCalulator
-In this project, we provide a simple but efficient regression model to predict men's body fat percentage.
+In this project, we provide a simple but efficient regression model to predict men's body fat percentage and more details are contained in the four folders.
 
 # Code
 There are two R code files contained in the code folder:
