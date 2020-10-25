@@ -12,10 +12,11 @@
 # 4. model diagnostics: Using some common methods to check assumptions of the presented model.
 
 ##################### Contributions #####################
-# 1. data preprocessing: ZW created and maintained, SL and YX revised
-# 2. candidate models: YX created and maintained, SL and ZW revised
-# 3. cross validation: ZW created and maintained, SL and YX revised
-# 4. model diagnostics: SL created and maintained, YX and ZW revised
+# 1. data preprocessing: Zihang Wang created and maintained, Sixu Li and Yinqiu Xu revised.
+# 2. candidate models: Yinqiu Xu created and maintained, Sixu Li and Zihang Wang revised.
+# 3. cross validation: Zihang Wang created and maintained, Sixu Li and Yinqiu Xu revised.
+# 4. model diagnostics: Sxiu Li created and maintained, Yinqiu Xu and Zihang Wang revised.
+# 5. Shiny app: Yinqiu Xu created and maintained, Sixu Li and Zihang Wang revised.
 
 ##################### PART 2: candidate models #####################
 library(ggplot2)
