@@ -9,7 +9,7 @@ There are two R code files contained in the code folder:
 # Data
 In the data folder:
 - BodyFat.csv is a real data set contains 252 male with measurements of their body fat percentage and various anthropometric measurements. 
-- New_data.Rdata is the Rdata file after data preprocessing.
+- New_data.csv is final data set after data preprocessing.
 
 # Image
 In the image folder, we mainly provide some visualization of the raw data and the diagnostic plots for assumptions checking and influential points detecting:
