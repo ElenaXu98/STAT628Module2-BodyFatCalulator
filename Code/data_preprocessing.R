@@ -16,7 +16,7 @@
 # 2. candidate models: YX created and maintained, SL and ZW revised
 # 3. cross validation: ZW created and maintained, SL and YX revised
 # 4. model diagnostics: SL created and maintained, YX and ZW revised
-# 5. Shiny app: Yinqiu Xu created and maintained, Sixu Li and Zihang Wang revised.
+# 5. Shiny app: YX created and maintained, SL and ZW revised.
 
 ##################### PART 1: data cleaning #####################
 library(ggplot2)
