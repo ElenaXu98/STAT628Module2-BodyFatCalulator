@@ -24,7 +24,7 @@ In the image folder, we mainly provide some visualization of the raw data and th
 The two-page summary mainly introduces the whole process of this data analysis project and discusses about the strengths and weaknesses of our model.
 
 # Toy Body Fat Calculator
-- [Body Fat Calculator](https://elenaxu98.shinyapps.io/BodyFatShinyApp/)
+- [Body Fat Calculator](https://elenaxu98.shinyapps.io/TestApp/)
 
 # Authors
 - Zihang Wang - (zwang2547@wisc.edu)
