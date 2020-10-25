@@ -20,7 +20,7 @@
 ##################### PART 1: data cleaning #####################
 library(ggplot2)
 
-data = read.csv("data/BodyFat.csv")
+data = read.csv("BodyFat.csv")
 dim(data)
 colnames(data)
 summary(data)
