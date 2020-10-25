@@ -14,6 +14,7 @@ In the data folder:
 # Image
 In the image folder, we mainly provide some visualization of the raw data and the diagnostic plots for assumptions checking and influential points detecting:
 - BodyfatVsHeight.png is the scatter plot of variables body fat and height.
+- BodyfatVsAdiposity.png is the scatter plot of variables body fat and adiposity.
 - CheckAdiposity.png is the scatter plot that is used to compare the original value of adiposity and calculated adiposity.
 - ResidulVsFittedvalue.png is the diagnostic plot for checking homoscedacity assumption of regression model.
 - QQplot.png is the diagnostic plot for checking checking normality assumption of regression model.
